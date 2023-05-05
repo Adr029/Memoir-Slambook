@@ -2,6 +2,7 @@ package com.example.slambook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +11,14 @@ import android.widget.EditText;
 public class addSlam extends AppCompatActivity {
 Button btn_save;
 EditText edt_name, edt_nickname, edt_birthday, edt_wish, edt_color, edt_food, edt_music;
+    SQLiteDBHelper myDB;
+    Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_slam);
+        myDB = new SQLiteDBHelper(context);
         btn_save = findViewById(R.id.trySave);
         edt_name = findViewById(R.id.input_slamName);
         edt_nickname = findViewById(R.id.input_slamNickname);
@@ -30,6 +35,7 @@ EditText edt_name, edt_nickname, edt_birthday, edt_wish, edt_color, edt_food, ed
             }
         });
     }
+
 
 
 }
