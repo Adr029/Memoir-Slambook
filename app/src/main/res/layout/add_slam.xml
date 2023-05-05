@@ -24,8 +24,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="368dp"
-        android:layout_height="239dp"
+        android:layout_width="367dp"
+        android:layout_height="283dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="vertical"
@@ -33,10 +33,9 @@
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.075">
+        app:layout_constraintVertical_bias="0.477">
 
         <TextView
             android:id="@+id/textView13"
@@ -59,7 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
+            android:textColor="@color/dark_blue"
             android:textSize="16sp" />
 
         <TextView
@@ -74,7 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
+            android:textColor="@color/dark_blue"
             android:textSize="16sp" />
 
         <TextView
@@ -89,7 +92,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
+            android:textColor="@color/dark_blue"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -104,12 +109,12 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.981" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="373dp"
-        android:layout_height="278dp"
+        android:layout_width="371dp"
+        android:layout_height="356dp"
         android:padding="20dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
@@ -122,7 +127,7 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="368dp"
-            android:layout_height="295dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#FFFFFF"
             android:gravity="center"
@@ -151,8 +156,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/poppins_light"
                 android:inputType="textPersonName"
-                android:textColor="@color/light_blue"
+                android:textColor="@color/dark_blue"
                 android:textSize="16sp" />
 
             <TextView
@@ -167,8 +173,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/poppins_light"
                 android:inputType="textPersonName"
-                android:textColor="@color/light_blue"
+                android:textColor="@color/dark_blue"
                 android:textSize="16sp" />
 
             <TextView
@@ -183,9 +190,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/poppins_light"
                 android:hint="mm/dd/yy"
                 android:inputType="date"
-                android:textColor="@color/light_blue"
+                android:textColor="@color/dark_blue"
                 android:textSize="16sp" />
 
             <TextView
@@ -200,7 +208,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/poppins_light"
                 android:inputType="textPersonName"
+                android:textColor="@color/dark_blue"
                 android:textSize="16sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

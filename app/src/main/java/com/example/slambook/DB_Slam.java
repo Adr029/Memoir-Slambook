@@ -10,10 +10,12 @@ public class DB_Slam {
         //Columns
         public static String ID = "user_id";
         public static String COMPLETE_NAME = "user_complete_name";
-        public static String USERNAME = "user_username";
-        public static String PASSWORD = "user_password";
+        public static String NICKNAME = "user_nickname";
         public static String BIRTHDAY = "user_birthday";
-        public static String ADDRESS = "user_address";
+        public static String BDAYWISH = "user_bdaywish";
+        public static String COLOR = "user_color";
+        public static String FOOD = "user_food";
+        public static String MUSIC= "user_music";
     }
 
     public static class Post implements BaseColumns {
