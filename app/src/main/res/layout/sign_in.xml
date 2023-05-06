@@ -42,6 +42,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="7dp"
             android:textColorHint="#A7B7D1"
+            android:textColor="@color/blue"
             android:textSize="16sp" />
 
         <EditText
@@ -62,6 +63,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="7dp"
             android:textColorHint="#A7B7D1"
+            android:textColor="@color/blue"
             android:textSize="16sp" />
 
         <Button

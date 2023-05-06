@@ -19,16 +19,16 @@ Button btn_signIn;
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent home = new Intent(signUp.this, homePage.class);
-                startActivity(home);
+                Intent signIn = new Intent(signUp.this, signIn.class);
+                startActivity(signIn);
             }
         });
 
         btn_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signUp = new Intent(signUp.this, signUp.class);
-                startActivity(signUp);
+                Intent home = new Intent(signUp.this, homePage.class);
+                startActivity(home);
             }
         });
     }
