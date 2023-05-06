@@ -39,6 +39,19 @@
                     android:textColor="@color/dark_blue"
                     android:textSize="20sp" />
 
+                <Space
+                    android:layout_width="133dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/deleteSlam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/ic_delete" />
+
             </LinearLayout>
 
             <LinearLayout
