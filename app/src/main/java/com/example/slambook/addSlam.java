@@ -3,6 +3,7 @@ package com.example.slambook;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +54,8 @@ private void init()
 
             if (myDB.insertSlams(name, nickname, birthday, bdaywish, color, food, music, currentDate)) {
                 Toast.makeText(context, "New Slam Added.", Toast.LENGTH_SHORT).show();
-
+                Intent home = new Intent(addSlam.this, homePage.class);
+                startActivity(home);
             } else {
                 Toast.makeText(context, "Insert failed.", Toast.LENGTH_SHORT).show();
 
