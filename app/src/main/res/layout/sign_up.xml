@@ -7,154 +7,176 @@
     android:background="@drawable/bg_ver2"
     tools:context=".signUp">
 
-    <LinearLayout
-        android:layout_width="352dp"
-        android:layout_height="524dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rectangle_white"
-        android:orientation="vertical"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="526dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="33dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Create an Account"
-            android:textAlignment="center"
-            android:textColor="@color/dark_blue"
-            android:textSize="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="33dp" />
 
-        <EditText
-            android:id="@+id/txt_nameReg"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/text_field"
-            android:drawableStart="@drawable/ic_user_name"
-            android:drawablePadding="16dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="Name"
-            android:includeFontPadding="false"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingBottom="7dp"
-            android:textColorHint="#A7B7D1"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Create an Account"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/txt_usernameReg"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/text_field"
-            android:drawableStart="@drawable/ic_user_name"
-            android:drawablePadding="16dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="Username"
-            android:includeFontPadding="false"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingBottom="7dp"
-            android:textColorHint="#A7B7D1"
-            android:textSize="16sp" />
+            <EditText
+                android:id="@+id/txt_nameReg"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/text_field"
+                android:drawableStart="@drawable/ic_user_name"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Name"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:textColor="@color/blue"
+                android:textColorHint="#A7B7D1"
+                android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/txt_passwordReg"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/text_field"
-            android:drawableStart="@drawable/ic_password"
-            android:drawablePadding="16dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="Password"
-            android:includeFontPadding="false"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingBottom="7dp"
-            android:textColorHint="#A7B7D1"
-            android:textSize="16sp" />
+            <EditText
+                android:id="@+id/txt_usernameReg"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/text_field"
+                android:drawableStart="@drawable/ic_user_name"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Username"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:textColor="@color/blue"
+                android:textColorHint="#A7B7D1"
+                android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/editTextTextPassword3"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/text_field"
-            android:drawableStart="@drawable/ic_password"
-            android:drawablePadding="16dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="Confirm Password"
-            android:includeFontPadding="false"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingBottom="7dp"
-            android:textColorHint="#A7B7D1"
-            android:textSize="16sp" />
+            <EditText
+                android:id="@+id/txt_passwordReg"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/text_field"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Password"
+                android:includeFontPadding="false"
+                android:inputType="text|textPassword"
+                android:paddingLeft="20dp"
+                android:textColor="@color/blue"
+                android:textColorHint="#A7B7D1"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/signUp2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button_pink"
-            android:backgroundTint="@null"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Sign Up"
-            android:textColor="@color/white" />
+            <EditText
+                android:id="@+id/editTextTextPassword3"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/text_field"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Confirm Password"
+                android:includeFontPadding="false"
+                android:inputType="text|textPassword"
+                android:paddingLeft="20dp"
+                android:textColor="@color/blue"
+                android:textColorHint="#A7B7D1"
+                android:textSize="16sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="29dp" />
+            <Button
+                android:id="@+id/signUp2"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_pink"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Sign Up"
+                android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center"
-            android:text="Already have an account?"
-            android:textColor="@color/dark_blue" />
+            <CheckBox
+                android:id="@+id/checkBoxTermsAndCond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:buttonTint="@color/blue"
+                android:fontFamily="@font/poppins_regular"
+                android:text="By signing up you accept the Terms and Conditions and Privacy Policy"
+                android:textColor="@color/blue"
+                android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/signIn2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button_pink"
-            android:backgroundTint="@null"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Sign In"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="29dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="Already have an account?"
+                android:textColor="@color/dark_blue" />
+
+            <Button
+                android:id="@+id/signIn2"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_pink"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Sign In"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
