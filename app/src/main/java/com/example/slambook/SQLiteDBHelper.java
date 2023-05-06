@@ -114,16 +114,20 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
 
     public boolean checkUsername(String username)
     {
-        Cursor check = DB.query(DB_Slam.User.USER_TABLE, null   ,null,null   ,null,null ,null);
+        String[] columns = {DB_Slam.User.USERNAME};
+        String selection = "user_username=?";
+        String[] selectionArgs = {username};
+        Cursor check = DB.query(DB_Slam.User.USER_TABLE, columns,selection,selectionArgs,null,null ,null);
+        int count = check.getCount();
+        check.close();
 
-        if (check.getCount() == 1)
+        if (count > 0)
         {
             return true;
         }
         else
         {
             return false;
-            //
         }
     }
 }
