@@ -15,7 +15,6 @@ public class addSlam extends AppCompatActivity {
 Button btn_save;
 EditText edt_name, edt_nickname, edt_birthday, edt_wish, edt_color, edt_food, edt_music;
     SQLiteDBHelper myDB;
-    SQLiteDatabase DB;
 
     Context context = this;
 
