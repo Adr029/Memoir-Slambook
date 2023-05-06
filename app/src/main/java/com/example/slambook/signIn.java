@@ -31,7 +31,7 @@ EditText name;
     {
         btn_signIn = findViewById(R.id.signIn);
         btn_signUp = findViewById(R.id.signUp);
-        name = findViewById(R.id.input_username);
+       // name = findViewById(R.id.input_username);
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

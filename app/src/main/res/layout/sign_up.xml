@@ -38,7 +38,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/txt_nameReg"
+            android:id="@+id/editTextText3"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="20dp"
@@ -58,7 +58,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txt_usernameReg"
+            android:id="@+id/editTextText4"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="20dp"
@@ -78,7 +78,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txt_passwordReg"
+            android:id="@+id/editTextTextPassword2"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="20dp"
