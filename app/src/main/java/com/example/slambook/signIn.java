@@ -54,6 +54,8 @@ EditText name;
         if (myDB.checkUsername(username)) {
             Intent home = new Intent(signIn.this, homePage.class);
             startActivity(home);
+            home.putExtra("username", username);
+            startActivity(home);
         }
         else {
             Toast.makeText(context, "User does not exist", Toast.LENGTH_SHORT).show();

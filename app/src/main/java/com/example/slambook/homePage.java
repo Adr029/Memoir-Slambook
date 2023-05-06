@@ -18,12 +18,15 @@ public class homePage extends AppCompatActivity {
     Context context = this;
     SQLiteDBHelper myDB;
     TextView textDB;
+    TextView usernameSample;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
-
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
         myDB = new SQLiteDBHelper(context);
         init();
         displaySlams();
@@ -31,10 +34,13 @@ public class homePage extends AppCompatActivity {
     }
     public void init()
     {
+        usernameSample = findViewById(R.id.usernameSample);
         sampleLogOut = findViewById(R.id.testLogOut);
         sampleAddSlam = findViewById(R.id.addSlam);
         birthdayPage = findViewById(R.id.birthdayPage);
         textDB = findViewById(R.id.txtDB);
+
+        usernameSample.setText(username);
         sampleLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
