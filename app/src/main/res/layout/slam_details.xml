@@ -118,15 +118,13 @@
                         android:text="Hello, my name is..."
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamName"
+                    <TextView
+                        android:id="@+id/output_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
 
                     <TextView
@@ -137,15 +135,13 @@
                         android:text="Or you can call me:"
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamNickname"
+                    <TextView
+                        android:id="@+id/output_nickname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
 
                     <TextView
@@ -156,17 +152,13 @@
                         android:text="I was born on:"
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamBirthday"
+                    <TextView
+                        android:id="@+id/output_bday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:hint="mm/dd/yy"
-                        android:inputType="date"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/light_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
 
                     <TextView
@@ -177,15 +169,13 @@
                         android:text="My birthday wish is..."
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamBirthdayWish"
+                    <TextView
+                        android:id="@+id/output_wish"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textLongMessage"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -234,15 +224,13 @@
                         android:text="I love the color..."
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamColor"
+                    <TextView
+                        android:id="@+id/output_color"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
 
                     <TextView
@@ -254,15 +242,13 @@
                         android:text="My comfort food is..."
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamFood"
+                    <TextView
+                        android:id="@+id/output_food"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
 
                     <TextView
@@ -274,16 +260,15 @@
                         android:text="I love listening to..."
                         android:textColor="@color/blue" />
 
-                    <EditText
-                        android:id="@+id/input_slamMusic"
+                    <TextView
+                        android:id="@+id/output_music"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -346,32 +331,21 @@
                             android:textColor="@color/blue" />
                     </LinearLayout>
 
-                    <EditText
-                        android:id="@+id/input_slamColor2"
+                    <TextView
+                        android:id="@+id/output_message"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="TextView"
+                        android:textColor="@color/light_blue"
                         android:textSize="16sp" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/trySave"
-                android:layout_width="127dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/button_pink"
-                android:fontFamily="@font/poppins_bold"
-                android:text="SAVE"
-                android:textColor="@color/white" />
 
             <Space
                 android:layout_width="match_parent"

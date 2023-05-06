@@ -31,7 +31,7 @@ public class birthday extends AppCompatActivity {
     //textBday = findViewById(R.id.txt_Bday);
     }
 
-    private void displayBirthdays()
+   /* private void displayBirthdays()
     {
         textUser.setText("");
         textBday.setText("");
@@ -56,4 +56,6 @@ public class birthday extends AppCompatActivity {
             textBday.setText(stringBuffer2);
         }
     }
+
+    */
 }

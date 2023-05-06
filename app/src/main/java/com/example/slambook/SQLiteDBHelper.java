@@ -34,6 +34,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
                 "`" + DB_Slam.Slams.FOOD + "` TEXT NOT NULL," +
                 "`" + DB_Slam.Slams.MUSIC + "` TEXT NOT NULL," +
                 "`" + DB_Slam.Slams.DATE + "` TEXT NOT NULL," +
+                "`" + DB_Slam.Slams.LOGGEDIN + "` TEXT NOT NULL," +
                 " UNIQUE (`" + DB_Slam.Slams.ID + "`) ON CONFLICT ABORT);";
 
         final String CREATE_USER_TABLE = "CREATE TABLE `" + DB_Slam.User.USER_TABLE + "` (" +
@@ -68,7 +69,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
 
     }
     public boolean insertSlams(String name, String nickname, String birthday,
-                               String bdaywish, String color, String food, String music, String currentDate) {
+                               String bdaywish, String color, String food, String music, String currentDate, String loggedUser) {
         ContentValues values = new ContentValues();
         values.put(DB_Slam.Slams.COMPLETE_NAME, name);
         values.put(DB_Slam.Slams.NICKNAME, nickname);
@@ -78,6 +79,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         values.put(DB_Slam.Slams.FOOD, food);
         values.put(DB_Slam.Slams.MUSIC, music);
         values.put(DB_Slam.Slams.DATE, currentDate);
+        values.put(DB_Slam.Slams.LOGGEDIN, loggedUser);
         long result = DB.insert(DB_Slam.Slams.SLAM_TABLE, null, values);
         if (result == -1) {
             return false;
@@ -102,12 +104,23 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Cursor selectSlams()
+    public Cursor selectSlams(String loggedinuser)
     {
+        String selection = "answer_loggedin=?";
+        String[] selectionArgs = {loggedinuser};
         DB = this.getReadableDatabase();
-        Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, null, null, null, null, null);
+        Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
         return result;
-    } public Cursor selectUSer()
+    }
+    public Cursor selectSlam(String slamID)
+    {
+        String selection = "user_id=?";
+        String[] selectionArgs = {slamID};
+        DB = this.getReadableDatabase();
+        Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
+        return result;
+    }
+    public Cursor selectUser()
     {
         DB = this.getReadableDatabase();
         Cursor result = DB.query(DB_Slam.User.USER_TABLE, null, null, null, null, null, null);

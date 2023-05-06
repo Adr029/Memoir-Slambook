@@ -15,7 +15,7 @@ Button btn_signIn, btn_signUp;
 SQLiteDBHelper myDB;
 String username, password;
 EditText txt_name, txt_password;
-    Context context = this;
+Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,8 @@ EditText txt_name, txt_password;
     {
     username = txt_name.getText().toString();
     password = txt_password.getText().toString();
-        if (myDB.checkUsername(username, password)) {
+        if (myDB.checkUsername(username, password))
+        {
             Intent home = new Intent(signIn.this, homePage.class);
             startActivity(home);
             home.putExtra("username", username);

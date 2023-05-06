@@ -19,7 +19,7 @@ public class homePage extends AppCompatActivity {
     SQLiteDBHelper myDB;
     TextView textDB;
     TextView usernameSample;
-    String username;
+    String username, slamID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent newSlam = new Intent(homePage.this, addSlam.class);
+                newSlam.putExtra("username", username);
                 startActivity(newSlam);
             }
         });
@@ -68,8 +69,8 @@ public class homePage extends AppCompatActivity {
     private void displaySlams()
     {
         textDB.setText("");
-
-        Cursor result = myDB.selectSlams();
+        String loggedinuser = username;
+        Cursor result = myDB.selectSlams(loggedinuser);
         if (result.getCount() == 0)
         {
             textDB.setText("No Data");
@@ -81,8 +82,17 @@ public class homePage extends AppCompatActivity {
             while (result.moveToNext())
             {
                 stringBuffer.append(" " + result.getString(0) + " "+ result.getString(1) + " " + result.getString(8)+"\n\n");
+                slamID = result.getString(0);
             }
             textDB.setText(stringBuffer);
+            textDB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent slam = new Intent(homePage.this, slamDetails.class);
+                    slam.putExtra("slamID", slamID);
+                    startActivity(slam);
+                }
+            });
         }
     }
 }

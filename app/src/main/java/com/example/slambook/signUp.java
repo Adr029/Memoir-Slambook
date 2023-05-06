@@ -52,12 +52,12 @@ EditText edt_name, edt_username, edt_password;
                 String password = edt_password.getText().toString();
 
                 if (myDB.insertUser(name, username, password)) {
-                    Toast.makeText(context, "New User Added.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "New User Added", Toast.LENGTH_SHORT).show();
                     Intent home = new Intent(signUp.this, homePage.class);
                     home.putExtra("username", username);
                     startActivity(home);
                 } else {
-                    Toast.makeText(context, "Insert failed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Insert failed", Toast.LENGTH_SHORT).show();
 
                 }
             }
