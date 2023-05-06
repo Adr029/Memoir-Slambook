@@ -22,13 +22,13 @@ public class birthday extends AppCompatActivity {
         setContentView(R.layout.birthday);
         myDB = new SQLiteDBHelper(context);
         init();
-        displayBirthdays();
+        //displayBirthdays();
     }
 
     public void init()
     {
-    textUser = findViewById(R.id.txt_Name);
-    textBday = findViewById(R.id.txt_Bday);
+    //textUser = findViewById(R.id.txt_Name);
+    //textBday = findViewById(R.id.txt_Bday);
     }
 
     private void displayBirthdays()
