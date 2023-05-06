@@ -2,14 +2,16 @@ package com.example.slambook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class addSlam extends AppCompatActivity {
 Button btn_save;
@@ -47,8 +49,10 @@ private void init()
             String color = edt_color.getText().toString();
             String food = edt_food.getText().toString();
             String music = edt_music.getText().toString();
-            if (myDB.insertUser(name, nickname, birthday, bdaywish, color, food, music)) {
-                Toast.makeText(context, "New User Added.", Toast.LENGTH_SHORT).show();
+            String currentDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(new Date());
+
+            if (myDB.insertSlams(name, nickname, birthday, bdaywish, color, food, music, currentDate)) {
+                Toast.makeText(context, "New Slam Added.", Toast.LENGTH_SHORT).show();
 
             } else {
                 Toast.makeText(context, "Insert failed.", Toast.LENGTH_SHORT).show();

@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class homePage extends AppCompatActivity {
     Button sampleLogOut;
     Button sampleAddSlam;
+    Button birthdayPage;
     Context context = this;
     SQLiteDBHelper myDB;
     TextView textDB;
@@ -32,6 +33,7 @@ public class homePage extends AppCompatActivity {
     {
         sampleLogOut = findViewById(R.id.testLogOut);
         sampleAddSlam = findViewById(R.id.addSlam);
+        birthdayPage = findViewById(R.id.birthdayPage);
         textDB = findViewById(R.id.txtDB);
         sampleLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,14 @@ public class homePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent newSlam = new Intent(homePage.this, addSlam.class);
                 startActivity(newSlam);
+            }
+        });
+
+        birthdayPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent birthday = new Intent(homePage.this, birthday.class);
+                startActivity(birthday);
             }
         });
     }
@@ -64,8 +74,7 @@ public class homePage extends AppCompatActivity {
             StringBuffer stringBuffer = new StringBuffer();
             while (result.moveToNext())
             {
-                stringBuffer.append("ID " + result.getString(1) + " " + result.getString(2)+ " " +result.getString(3) + " "
-                        + " "+ result.getString(4)+ " " +result.getString(5) + " " + result.getString(6)+ " "+ result.getString(7)+"\n\n");
+                stringBuffer.append(" " + result.getString(0) + " "+ result.getString(1) + " " + result.getString(8)+"\n\n");
             }
             textDB.setText(stringBuffer);
         }
