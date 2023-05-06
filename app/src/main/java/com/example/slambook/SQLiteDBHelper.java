@@ -93,11 +93,13 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         values.put(DB_Slam.User.PASSWORD, password);
 
         long result = DB.insert(DB_Slam.User.USER_TABLE, null, values);
-        if (result == -1) {
+        if (result == -1)
+        {
             return false;
-        } else {
+        }
+        else
+        {
             return true;
-
         }
     }
     public Cursor selectSlams()
@@ -112,11 +114,11 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public boolean checkUsername(String username)
+    public boolean checkUsername(String username, String password)
     {
         String[] columns = {DB_Slam.User.USERNAME};
-        String selection = "user_username=?";
-        String[] selectionArgs = {username};
+        String selection = "user_username=? and user_password=?";
+        String[] selectionArgs = {username, password};
         Cursor check = DB.query(DB_Slam.User.USER_TABLE, columns,selection,selectionArgs,null,null ,null);
         int count = check.getCount();
         check.close();

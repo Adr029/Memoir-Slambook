@@ -11,11 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class signIn extends AppCompatActivity {
-Button btn_signIn;
-Button btn_signUp;
-    SQLiteDBHelper myDB;
-String username;
-EditText name;
+Button btn_signIn, btn_signUp;
+SQLiteDBHelper myDB;
+String username, password;
+EditText txt_name, txt_password;
     Context context = this;
 
     @Override
@@ -31,7 +30,8 @@ EditText name;
     {
         btn_signIn = findViewById(R.id.signIn);
         btn_signUp = findViewById(R.id.signUp);
-        name = findViewById(R.id.input_username);
+        txt_name = findViewById(R.id.input_username);
+        txt_password = findViewById(R.id.input_password);
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,15 +50,16 @@ EditText name;
 
     public void signIn()
     {
-    username = name.getText().toString();
-        if (myDB.checkUsername(username)) {
+    username = txt_name.getText().toString();
+    password = txt_password.getText().toString();
+        if (myDB.checkUsername(username, password)) {
             Intent home = new Intent(signIn.this, homePage.class);
             startActivity(home);
             home.putExtra("username", username);
             startActivity(home);
         }
         else {
-            Toast.makeText(context, "User does not exist", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Invalid username or password", Toast.LENGTH_SHORT).show();
 
         }
 
