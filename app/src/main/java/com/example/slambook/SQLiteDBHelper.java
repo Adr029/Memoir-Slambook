@@ -123,12 +123,6 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
         return result;
     }
-    public Cursor selectUser()
-    {
-        DB = this.getReadableDatabase();
-        Cursor result = DB.query(DB_Slam.User.USER_TABLE, null, null, null, null, null, null);
-        return result;
-    }
 
     public boolean checkAccount(String username, String password)
     {
@@ -146,6 +140,50 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         else
         {
             return false;
+        }
+    }
+    public boolean checkUserPassword(String oldPass)
+    {
+        String[] columns = {DB_Slam.User.PASSWORD};
+        String selection = "user_password=?";
+        String[] selectionArgs = {oldPass};
+        Cursor check = DB.query(DB_Slam.User.USER_TABLE, columns,selection,selectionArgs,null,null ,null);
+        int count = check.getCount();
+        check.close();
+
+        if (count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public Cursor selectUserByUsername(String username)
+    {
+        String selection = "user_username=?";
+        String[] selectionArgs = {username};
+        DB = this.getReadableDatabase();
+        Cursor result = DB.query(DB_Slam.User.USER_TABLE, null, selection, selectionArgs, null, null, null);
+        return result;
+    }
+    public boolean updatePassword(String username, String newPass)
+    {
+        DB = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DB_Slam.User.PASSWORD, newPass);
+        String[] columns = {DB_Slam.User.USERNAME};
+        String selection = "user_username=?";
+        String[] selectionArgs = {username};
+        long result = DB.update(DB_Slam.User.USER_TABLE, values, selection, selectionArgs);
+        if (result == -1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

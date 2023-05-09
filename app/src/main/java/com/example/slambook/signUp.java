@@ -19,7 +19,7 @@ Button btn_signUp, btn_signIn;
 Context context = this;
 SQLiteDBHelper myDB;
 
-EditText edt_name, edt_username, edt_password;
+EditText edt_name, edt_username, edt_password, edt_confirmPW;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,12 @@ EditText edt_name, edt_username, edt_password;
         edt_name = findViewById(R.id.txt_nameReg);
         edt_username = findViewById(R.id.txt_usernameReg);
         edt_password = findViewById(R.id.txt_passwordReg);
+        edt_confirmPW = findViewById(R.id.txt_confirmPW);
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent home = new Intent(signUp.this, homePage.class);
-                startActivity(home);
+                Intent signIn = new Intent(signUp.this, signIn.class);
+                startActivity(signIn);
             }
         });
 
@@ -50,16 +51,36 @@ EditText edt_name, edt_username, edt_password;
                 String name = edt_name.getText().toString();
                 String username  = edt_username.getText().toString();
                 String password = edt_password.getText().toString();
+                String confirmpass = edt_confirmPW.getText().toString();
+    if (name.length()!= 0 && username.length() != 0 && password.length()!= 0)
+    {
+        if (password.equals(confirmpass))
+        {
+            if (myDB.insertUser(name, username, password))
+            {
+                Toast.makeText(context, "New User Added", Toast.LENGTH_SHORT).show();
+                Intent home = new Intent(signUp.this, homePage.class);
+                home.putExtra("username", username);
+                startActivity(home);
+            }
+            else
+            {
+                Toast.makeText(context, "Insert failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(context, "Passwords do not match", Toast.LENGTH_SHORT).show();
+        }
 
-                if (myDB.insertUser(name, username, password)) {
-                    Toast.makeText(context, "New User Added", Toast.LENGTH_SHORT).show();
-                    Intent home = new Intent(signUp.this, homePage.class);
-                    home.putExtra("username", username);
-                    startActivity(home);
-                } else {
-                    Toast.makeText(context, "Insert failed", Toast.LENGTH_SHORT).show();
+    }
 
-                }
+    else
+    {
+        Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
+
+    }
+
             }
         });
     }

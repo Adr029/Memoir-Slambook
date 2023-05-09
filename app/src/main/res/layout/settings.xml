@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/s"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_ver2">
@@ -17,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Space
                 android:layout_width="wrap_content"
@@ -79,7 +80,7 @@
                         android:layout_height="10dp" />
 
                     <EditText
-                        android:id="@+id/input_password"
+                        android:id="@+id/settings_password"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:background="@drawable/text_field"
@@ -121,13 +122,14 @@
                         android:layout_height="10dp" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/settings_confirm"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:background="@drawable/button_pink"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Confirm"
                         android:textColor="@color/white" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -168,13 +170,14 @@
                         android:layout_height="10dp" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/settings_delete"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:background="@drawable/button_pink"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Delete"
                         android:textColor="@color/white" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -187,6 +190,7 @@
                 android:layout_width="225dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/button_pink"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Log out"

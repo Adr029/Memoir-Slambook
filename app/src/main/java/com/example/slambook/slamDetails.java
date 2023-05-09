@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class slamDetails extends AppCompatActivity {
     SQLiteDBHelper myDB;
     Context context = this;
-    String slamID, name, nickname, bday, bdaywish, color, food, music, msg, loggedinUser;
+    String slamID, name, nickname, bday, bdaywish, color, food, music, msg, loggedinUser, userfullName;
 TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food, txt_music, txt_msg, txt_userLoggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
         setContentView(R.layout.slam_details);
         Intent intent = getIntent();
         slamID = intent.getStringExtra("slamID");
+        userfullName = intent.getStringExtra("userfullName");
         myDB = new SQLiteDBHelper(context);
         init();
         displaySlam();
@@ -61,7 +62,7 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
         txt_food.setText(food);
         txt_music.setText(music);
         txt_msg.setText(msg);
-        txt_userLoggedIn.setText(loggedinUser);
+        txt_userLoggedIn.setText(userfullName);
 
     }
 }
