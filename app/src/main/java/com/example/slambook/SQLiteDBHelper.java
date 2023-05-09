@@ -25,17 +25,18 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB) {
         final String CREATE_SLAM_TABLE = "CREATE TABLE `" + DB_Slam.Slams.SLAM_TABLE + "` (" +
-                "`" + DB_Slam.Slams.ID + "` INTEGER PRIMARY KEY," +
-                "`" + DB_Slam.Slams.COMPLETE_NAME + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.NICKNAME + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.BDAYWISH + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.BIRTHDAY + "` DATE NOT NULL," +
-                "`" + DB_Slam.Slams.COLOR + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.FOOD + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.MUSIC + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.DATE + "` TEXT NOT NULL," +
-                "`" + DB_Slam.Slams.LOGGEDIN + "` TEXT NOT NULL," +
-                " UNIQUE (`" + DB_Slam.Slams.ID + "`) ON CONFLICT ABORT);";
+                "`" + DB_Slam.Slams.SLAMID + "` INTEGER PRIMARY KEY," + //0
+                "`" + DB_Slam.Slams.COMPLETE_NAME + "` TEXT NOT NULL," + //1
+                "`" + DB_Slam.Slams.NICKNAME + "` TEXT NOT NULL," + //2
+                "`" + DB_Slam.Slams.BIRTHDAY + "` DATE NOT NULL," + //3
+                "`" + DB_Slam.Slams.BDAYWISH + "` TEXT NOT NULL," + //4
+                "`" + DB_Slam.Slams.COLOR + "` TEXT NOT NULL," + //5
+                "`" + DB_Slam.Slams.FOOD + "` TEXT NOT NULL," + //6
+                "`" + DB_Slam.Slams.MUSIC + "` TEXT NOT NULL," + //7
+                "`" + DB_Slam.Slams.USERMSG + "` TEXT NOT NULL," +//8
+                "`" + DB_Slam.Slams.DATE + "` TEXT NOT NULL," + //9
+                "`" + DB_Slam.Slams.LOGGEDIN + "` TEXT NOT NULL," + //10
+                " UNIQUE (`" + DB_Slam.Slams.SLAMID + "`) ON CONFLICT ABORT);";
 
         final String CREATE_USER_TABLE = "CREATE TABLE `" + DB_Slam.User.USER_TABLE + "` (" +
                 "`" + DB_Slam.User.ID + "` INTEGER PRIMARY KEY," +
@@ -68,8 +69,9 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         }
 
     }
+    //change to user ID
     public boolean insertSlams(String name, String nickname, String birthday,
-                               String bdaywish, String color, String food, String music, String currentDate, String loggedUser) {
+                               String bdaywish, String color, String food, String music, String msg, String currentDate, String loggedUser) {
         ContentValues values = new ContentValues();
         values.put(DB_Slam.Slams.COMPLETE_NAME, name);
         values.put(DB_Slam.Slams.NICKNAME, nickname);
@@ -78,6 +80,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         values.put(DB_Slam.Slams.COLOR, color);
         values.put(DB_Slam.Slams.FOOD, food);
         values.put(DB_Slam.Slams.MUSIC, music);
+        values.put(DB_Slam.Slams.USERMSG, msg);
         values.put(DB_Slam.Slams.DATE, currentDate);
         values.put(DB_Slam.Slams.LOGGEDIN, loggedUser);
         long result = DB.insert(DB_Slam.Slams.SLAM_TABLE, null, values);
@@ -104,7 +107,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Cursor selectSlams(String loggedinuser)
+    public Cursor selectSlamsByUser(String loggedinuser)
     {
         String selection = "answer_loggedin=?";
         String[] selectionArgs = {loggedinuser};
@@ -112,9 +115,9 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
         return result;
     }
-    public Cursor selectSlam(String slamID)
+    public Cursor selectSlamByID(String slamID)
     {
-        String selection = "user_id=?";
+        String selection = "slam_id=?";
         String[] selectionArgs = {slamID};
         DB = this.getReadableDatabase();
         Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
@@ -127,7 +130,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public boolean checkUsername(String username, String password)
+    public boolean checkAccount(String username, String password)
     {
         String[] columns = {DB_Slam.User.USERNAME};
         String selection = "user_username=? and user_password=?";

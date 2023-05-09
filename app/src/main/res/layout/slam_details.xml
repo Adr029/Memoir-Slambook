@@ -321,7 +321,7 @@
                             android:textColor="@color/blue" />
 
                         <TextView
-                            android:id="@+id/txt_msgforUser"
+                            android:id="@+id/txt_userLoggedIn"
                             android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/blue"

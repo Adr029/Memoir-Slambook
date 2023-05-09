@@ -8,7 +8,7 @@ public class DB_Slam {
         //Table
         public static String SLAM_TABLE = "table_slam";
         //Columns
-        public static String ID = "user_id";
+        public static String SLAMID = "slam_id";
         public static String COMPLETE_NAME = "slam_complete_name";
         public static String NICKNAME = "slam_nickname";
         public static String BIRTHDAY = "slam_birthday";
@@ -16,6 +16,7 @@ public class DB_Slam {
         public static String COLOR = "slam_color";
         public static String FOOD = "slam_food";
         public static String MUSIC = "slam_music";
+        public static String USERMSG = "slam_msg";
         public static String DATE = "answer_date";
         public static String LOGGEDIN = "answer_loggedin"; //kung kaninong acc naka log in
     }

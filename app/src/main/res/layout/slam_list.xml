@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_slam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/blue"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:background="@color/light_pink"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/txt_slamID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="1"
+                android:textColor="@color/dark_blue"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.039"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.466" />
+
+            <TextView
+                android:id="@+id/txt_slamAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="TextView"
+                android:textColor="@color/dark_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/txt_slamID"
+                app:layout_constraintTop_toTopOf="@+id/txt_slamID" />
+
+            <TextView
+                android:id="@+id/txt_slamDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/txt_slamAuthor"
+                app:layout_constraintTop_toBottomOf="@+id/txt_slamAuthor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

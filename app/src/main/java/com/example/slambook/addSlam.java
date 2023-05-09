@@ -17,12 +17,11 @@ import java.util.Locale;
 
 public class addSlam extends AppCompatActivity {
 Button btn_save;
-EditText edt_name, edt_nickname, edt_birthday, edt_wish, edt_color, edt_food, edt_music;
+EditText edt_name, edt_nickname, edt_birthday, edt_wish, edt_color, edt_food, edt_music, edt_msg;
 SQLiteDBHelper myDB;
 Context context = this;
 String loggedin;
-
-TextView msgUser;
+TextView loggedinUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +42,9 @@ private void init()
     edt_color = findViewById(R.id.input_slamColor);
     edt_food = findViewById(R.id.input_slamFood);
     edt_music = findViewById(R.id.input_slamMusic);
-    msgUser = findViewById(R.id.txt_msgforUser);
-    msgUser.setText(loggedin +",");
+    edt_msg = findViewById(R.id.input_slamMsg);
+    loggedinUser = findViewById(R.id.txt_userLoggedIn);
+    loggedinUser.setText(loggedin +",");
     btn_save.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -55,10 +55,11 @@ private void init()
             String color = edt_color.getText().toString();
             String food = edt_food.getText().toString();
             String music = edt_music.getText().toString();
+            String msg = edt_msg.getText().toString();
             String loggedUser = loggedin;
             String currentDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(new Date());
 
-            if (myDB.insertSlams(name, nickname, birthday, bdaywish, color, food, music, currentDate, loggedUser)) {
+            if (myDB.insertSlams(name, nickname, birthday, bdaywish, color, food, music, msg, currentDate, loggedUser)) {
                 Toast.makeText(context, "New Slam Added", Toast.LENGTH_SHORT).show();
                 Intent home = new Intent(addSlam.this, homePage.class);
                 home.putExtra("username", loggedin);

@@ -1,25 +1,32 @@
 package com.example.slambook;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class homePage extends AppCompatActivity {
-    Button sampleLogOut;
-    Button sampleAddSlam;
-    Button birthdayPage;
+import java.util.ArrayList;
+import java.util.List;
+
+public class homePage extends AppCompatActivity implements  itemOnClick{
+    Button sampleLogOut, btn_AddSlam, btn_Birthday;
     Context context = this;
     SQLiteDBHelper myDB;
-    TextView textDB;
-    TextView usernameSample;
-    String username, slamID;
+    TextView textDB, usernameSample;
+    String username, slamID, slamAuthor, slamDate;
+
+    RecyclerView slamRecycler;
+    recyclerAdapter slamAdapter;
+    ArrayList<model> modelList;
+    private itemOnClick listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +35,22 @@ public class homePage extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
         myDB = new SQLiteDBHelper(context);
+        modelList = new ArrayList<>();
         init();
         displaySlams();
 
     }
     public void init()
     {
+        slamAdapter = new recyclerAdapter(homePage.this, modelList, this);
+        slamRecycler = findViewById(R.id.recycler_slam);
+        slamRecycler.setAdapter(slamAdapter);
+        slamRecycler.setLayoutManager(new LinearLayoutManager(homePage.this));
         usernameSample = findViewById(R.id.usernameSample);
         sampleLogOut = findViewById(R.id.testLogOut);
-        sampleAddSlam = findViewById(R.id.addSlam);
-        birthdayPage = findViewById(R.id.birthdayPage);
-        textDB = findViewById(R.id.txtDB);
-
+        btn_AddSlam = findViewById(R.id.addSlam);
+        btn_Birthday = findViewById(R.id.birthdayPage);
+        textDB = findViewById(R.id.txt_noSlam);
         usernameSample.setText(username);
         sampleLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +60,7 @@ public class homePage extends AppCompatActivity {
             }
         });
 
-        sampleAddSlam.setOnClickListener(new View.OnClickListener() {
+        btn_AddSlam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent newSlam = new Intent(homePage.this, addSlam.class);
@@ -58,7 +69,7 @@ public class homePage extends AppCompatActivity {
             }
         });
 
-        birthdayPage.setOnClickListener(new View.OnClickListener() {
+        btn_Birthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent birthday = new Intent(homePage.this, birthday.class);
@@ -70,29 +81,29 @@ public class homePage extends AppCompatActivity {
     {
         textDB.setText("");
         String loggedinuser = username;
-        Cursor result = myDB.selectSlams(loggedinuser);
+        Cursor result = myDB.selectSlamsByUser(loggedinuser);
         if (result.getCount() == 0)
         {
-            textDB.setText("No Data");
-
+            textDB.setText("No Slams Yet");
         }
         else
         {
-            StringBuffer stringBuffer = new StringBuffer();
             while (result.moveToNext())
             {
-                stringBuffer.append(" " + result.getString(0) + " "+ result.getString(1) + " " + result.getString(8)+"\n\n");
                 slamID = result.getString(0);
+                slamAuthor = result.getString(1);
+                slamDate = result.getString(9);
+                modelList.add(new model(slamID, slamAuthor, slamDate));
             }
-            textDB.setText(stringBuffer);
-            textDB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent slam = new Intent(homePage.this, slamDetails.class);
-                    slam.putExtra("slamID", slamID);
-                    startActivity(slam);
-                }
-            });
+            textDB.setText("");
         }
+    }
+
+    @Override
+    public void onItemClicked(model slamModel) {
+        slamID = slamModel.getSlam_id();
+        Intent slam = new Intent(homePage.this, slamDetails.class);
+        slam.putExtra("slamID", slamID);
+        startActivity(slam);
     }
 }

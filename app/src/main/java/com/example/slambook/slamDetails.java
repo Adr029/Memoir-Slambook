@@ -8,13 +8,11 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class slamDetails extends AppCompatActivity {
     SQLiteDBHelper myDB;
     Context context = this;
-    String slamID, name, nickname, bday, bdaywish, color, food, music, msg;
-TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food, txt_music, txt_msg;
+    String slamID, name, nickname, bday, bdaywish, color, food, music, msg, loggedinUser;
+TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food, txt_music, txt_msg, txt_userLoggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +35,12 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
     txt_food = findViewById(R.id.output_food);
     txt_music = findViewById(R.id.output_music);
     txt_msg = findViewById(R.id.output_message);
+    txt_userLoggedIn = findViewById(R.id.txt_userLoggedIn);
     }
 
     public void displaySlam()
     {
-        Cursor result = myDB.selectSlam(slamID);
+        Cursor result = myDB.selectSlamByID(slamID);
         while (result.moveToNext())
         {
             name = result.getString(1);
@@ -52,6 +51,7 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
             food = result.getString(6);
             music = result.getString(7);
             msg = result.getString(8);
+            loggedinUser = result.getString(10);
         }
         txt_name.setText(name);
         txt_nickname.setText(nickname);
@@ -61,6 +61,7 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
         txt_food.setText(food);
         txt_music.setText(music);
         txt_msg.setText(msg);
+        txt_userLoggedIn.setText(loggedinUser);
 
     }
 }

@@ -52,7 +52,7 @@ Context context = this;
     {
     username = txt_name.getText().toString();
     password = txt_password.getText().toString();
-        if (myDB.checkUsername(username, password))
+        if (myDB.checkAccount(username, password))
         {
             Intent home = new Intent(signIn.this, homePage.class);
             startActivity(home);
