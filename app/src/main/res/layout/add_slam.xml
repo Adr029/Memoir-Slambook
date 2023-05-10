@@ -167,7 +167,8 @@
                         android:inputType="date"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:focusable="false"/>
 
                     <TextView
                         android:id="@+id/textView12"
@@ -186,7 +187,8 @@
                         android:fontFamily="@font/poppins_light"
                         android:inputType="textLongMessage"
                         android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
