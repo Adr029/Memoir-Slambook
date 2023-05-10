@@ -2,17 +2,22 @@ package com.example.slambook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -24,6 +29,8 @@ SQLiteDBHelper myDB;
 Context context = this;
 String loggedin, userfullName;
 TextView loggedinUser;
+String birthMonth, birthDay;
+DatePickerDialog.OnDateSetListener setListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +38,17 @@ TextView loggedinUser;
         myDB = new SQLiteDBHelper(context);
         loggedin = getIntent().getStringExtra("username");
         userfullName = getIntent().getStringExtra("userfullName");
+
         init();
 
     }
 
 private void init()
 {
+    Calendar calendar = Calendar.getInstance();
+    final int year = calendar.get(Calendar.YEAR);
+    final int month = calendar.get(Calendar.MONTH);
+    final int day = calendar.get(Calendar.DAY_OF_MONTH);
     btn_save = findViewById(R.id.trySave);
     edt_name = findViewById(R.id.input_slamName);
     edt_nickname = findViewById(R.id.input_slamNickname);
@@ -52,12 +64,70 @@ private void init()
     //navbar
     navBtn_bday = findViewById(R.id.navBtn_bday_addSlam);
     navBtn_home = findViewById(R.id.navBtn_home_addSlam);
+
+    edt_birthday.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(addSlam.this,
+                    android.R.style.Theme_Holo_Dialog_MinWidth, setListener,year, month, day);
+            datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            datePickerDialog.show();
+        }
+    });
+
+    setListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            month = month+1;
+            birthDay = String.valueOf(month);
+            switch (month)
+            {
+                case 1:
+                    birthMonth = "January";
+                    break;
+                case 2:
+                    birthMonth = "February";
+                    break;
+                case 3:
+                    birthMonth = "March";
+                    break;
+                case 4:
+                    birthMonth = "April";
+                    break;
+                case 5:
+                    birthMonth = "May";
+                    break;
+                case 6:
+                    birthMonth = "June";
+                    break;
+                case 7:
+                    birthMonth = "July";
+                    break;
+                case 8:
+                    birthMonth = "August";
+                    break;
+                case 9:
+                    birthMonth = "September";
+                    break;
+                case 10:
+                    birthMonth = "October";
+                    break;
+                case 11:
+                    birthMonth = "November";
+                    break;
+                case 12:
+                    birthMonth = "December";
+                    break;
+            }
+            edt_birthday.setText(birthMonth + " "+day + ", "+year);
+        }
+    };
     btn_save.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             String name = edt_name.getText().toString();
             String nickname  = edt_nickname.getText().toString();
-            String birthday = edt_birthday.getText().toString();
+            String birthday = birthMonth + " "+ birthDay;
             String bdaywish = edt_wish.getText().toString();
             String color = edt_color.getText().toString();
             String food = edt_food.getText().toString();

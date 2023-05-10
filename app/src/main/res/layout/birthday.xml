@@ -97,7 +97,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textUpBdaysName"
+                            android:id="@+id/textUpBdaysName1"
                             android:layout_width="131dp"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_bday_upcoming"
@@ -109,23 +109,13 @@
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/textUpBdaysDate"
+                            android:id="@+id/textUpBdaysDate1"
                             android:layout_width="98dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/poppins_medium"
                             android:text="TextView"
                             android:textColor="#4C6795"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/textUpBdaysRemDays"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="TextView"
-                            android:textColor="@color/dark_pink"
                             android:textSize="14sp" />
 
 
@@ -161,9 +151,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="22dp" />
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_user"
+                            android:layout_width="98dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="TextView"
+                            android:textColor="#4C6795"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txt_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="TextView"
+                            android:textColor="@color/dark_pink"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

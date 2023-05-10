@@ -16,27 +16,30 @@ public class birthday extends AppCompatActivity {
     SQLiteDBHelper myDB;
     TextView textUser;
     TextView textBday;
+    String loggedin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.birthday);
         myDB = new SQLiteDBHelper(context);
         init();
-        //displayBirthdays();
+        loggedin = getIntent().getStringExtra("username");
+        displayBirthdays();
+
     }
 
     public void init()
     {
-    //textUser = findViewById(R.id.txt_Name);
-    //textBday = findViewById(R.id.txt_Bday);
+    textUser = findViewById(R.id.txt_user);
+    textBday = findViewById(R.id.txt_date);
     }
 
-   /* private void displayBirthdays()
+   private void displayBirthdays()
     {
         textUser.setText("");
         textBday.setText("");
 
-        Cursor result = myDB.selectSlams();
+        Cursor result = myDB.selectSlamsByUser(loggedin);
         if (result.getCount() == 0)
         {
             textUser.setText("No Data");
@@ -49,7 +52,7 @@ public class birthday extends AppCompatActivity {
             while (result.moveToNext())
             {
                 stringBuffer.append(" " + result.getString(1) +"\n\n");
-                stringBuffer2.append(" " + result.getString(4) +"\n\n");
+                stringBuffer2.append(" " + result.getString(3) +"\n\n");
             }
 
             textUser.setText(stringBuffer);
@@ -57,5 +60,4 @@ public class birthday extends AppCompatActivity {
         }
     }
 
-    */
 }

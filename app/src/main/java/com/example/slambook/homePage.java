@@ -66,6 +66,7 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
             @Override
             public void onClick(View view) {
                 Intent birthday = new Intent(homePage.this, birthday.class);
+                birthday.putExtra("username", username);
                 startActivity(birthday);
             }
         });
