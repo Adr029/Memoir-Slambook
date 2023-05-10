@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import java.util.Locale;
 
 public class addSlam extends AppCompatActivity {
 Button btn_save;
+ImageButton navBtn_bday, navBtn_home;
 EditText edt_name, edt_nickname, edt_birthday, edt_wish, edt_color, edt_food, edt_music, edt_msg;
 SQLiteDBHelper myDB;
 Context context = this;
@@ -46,6 +48,10 @@ private void init()
     edt_msg = findViewById(R.id.input_slamMsg);
     loggedinUser = findViewById(R.id.txt_userLoggedIn);
     loggedinUser.setText(userfullName +",");
+
+    //navbar
+    navBtn_bday = findViewById(R.id.navBtn_bday_addSlam);
+    navBtn_home = findViewById(R.id.navBtn_home_addSlam);
     btn_save.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -76,6 +82,21 @@ else {
     Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
 
 }
+        }
+    });
+    //nav bar
+    navBtn_bday.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent birthday = new Intent(addSlam.this, birthday.class);
+            startActivity(birthday);
+        }
+    });
+    navBtn_home.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent homePage = new Intent(addSlam.this, homePage.class);
+            startActivity(homePage);
         }
     });
 }

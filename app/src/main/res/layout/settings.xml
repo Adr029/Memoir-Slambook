@@ -146,7 +146,7 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:id="@+id/textView15"
+                        android:id="@+id/textView16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
@@ -185,16 +185,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/logOut"
-                android:layout_width="225dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/button_pink"
+                android:drawableStart="@drawable/ic_logout"
+                android:ems="10"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Log out"
-                android:textColor="@color/white" />
+                android:text="LOG OUT"
+                android:textColor="@color/white"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconTint="@color/white"
+
+                 />
 
         </LinearLayout>
     </ScrollView>
