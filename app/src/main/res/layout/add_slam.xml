@@ -7,379 +7,493 @@
     android:background="@drawable/bg_ver2"
     tools:context=".addSlam">
 
-    <ScrollView
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
+        android:orientation="vertical"
+        app:layout_constraintBaseline_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Add a Slam"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_width="94dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                app:srcCompat="@drawable/ic_settings" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scrollbars="none"
+            app:flow_verticalBias="0.352">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="Add a Slam"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="20sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:paddingBottom="100dp">
 
                 <Space
-                    android:layout_width="133dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <ImageButton
-                    android:id="@+id/deleteSlam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/ic_delete" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Space
-                        android:layout_width="100dp"
-                        android:layout_height="12dp"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        app:srcCompat="@drawable/about_you" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:padding="20dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="330dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:paddingTop="10dp">
-
-                    <TextView
-                        android:id="@+id/textView7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_bold"
-                        android:gravity="center"
-                        android:text="About You"
-                        android:textColor="@color/dark_pink"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="Hello, my name is..."
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="Or you can call me:"
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamNickname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="I was born on:"
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamBirthday"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:hint="mm/dd/yy"
-                        android:inputType="date"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/light_blue"
-                        android:textSize="16sp"
-                        android:focusable="false"/>
-
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="My birthday wish is..."
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamBirthdayWish"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textLongMessage"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp"
-                        />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:elevation="5dp"
-                android:padding="20dp"
-                app:cardCornerRadius="20dp"
-                tools:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="330dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:paddingBottom="10dp"
-                    android:scrollbars="none">
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_bold"
-                        android:gravity="center"
-                        android:text="Favorites"
-                        android:textColor="@color/dark_pink"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="I love the color..."
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/blue"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="My comfort food is..."
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamFood"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/blue"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="I love listening to..."
-                        android:textColor="@color/blue" />
-
-                    <EditText
-                        android:id="@+id/input_slamMusic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="327dp"
-                android:layout_height="123dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:elevation="5dp"
-                android:padding="20dp"
-                app:cardCornerRadius="20dp"
-                tools:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="193dp"
-                    android:layout_gravity="center"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:paddingBottom="10dp"
-                    android:scrollbars="none">
-
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_bold"
-                        android:gravity="center"
-                        android:text="Message for You"
-                        android:textColor="@color/dark_pink"
-                        android:textSize="14sp" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
+                        <Space
+                            android:layout_width="100dp"
+                            android:layout_height="12dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            app:srcCompat="@drawable/about_you" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:padding="20dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="330dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:paddingTop="10dp">
+
                         <TextView
-                            android:id="@+id/textView22"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="About You"
+                            android:textColor="@color/dark_pink"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Hello, my name is..."
+                            android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Or you can call me:"
+                            android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamNickname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="I was born on:"
+                            android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamBirthday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:hint="mm/dd/yy"
+                            android:inputType="date"
+                            android:textColor="@color/dark_blue"
+                            android:textColorHint="@color/light_blue"
+                            android:textSize="16sp"
+                            android:focusable="false"/>
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="My birthday wish is..."
+                            android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamBirthdayWish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textLongMessage"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="5dp"
+                    android:padding="20dp"
+                    app:cardCornerRadius="20dp"
+                    tools:cardCornerRadius="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="330dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:paddingBottom="10dp"
+                        android:scrollbars="none">
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Favorites"
+                            android:textColor="@color/dark_pink"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="I love the color..."
+                            android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/blue"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Dear"
+                            android:text="My comfort food is..."
                             android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamFood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/txt_userLoggedIn"
-                            android:layout_width="185dp"
+                            android:id="@+id/textView18"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/blue"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:paddingLeft="3dp"
-                            android:text="user's name"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="I love listening to..."
                             android:textColor="@color/blue" />
+
+                        <EditText
+                            android:id="@+id/input_slamMusic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
                     </LinearLayout>
 
-                    <EditText
-                        android:id="@+id/input_slamMsg"
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="327dp"
+                    android:layout_height="123dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="5dp"
+                    android:padding="20dp"
+                    app:cardCornerRadius="20dp"
+                    tools:cardCornerRadius="20dp">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/light_blue"
-                        android:ems="10"
-                        android:fontFamily="@font/poppins_light"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        android:layout_height="193dp"
+                        android:layout_gravity="center"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:paddingBottom="10dp"
+                        android:scrollbars="none">
 
-            <Space
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Message for You"
+                            android:textColor="@color/dark_pink"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/blue"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Dear"
+                                android:textColor="@color/blue" />
+
+                            <TextView
+                                android:id="@+id/txt_userLoggedIn"
+                                android:layout_width="185dp"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/blue"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:paddingLeft="3dp"
+                                android:text="user's name"
+                                android:textColor="@color/blue" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/input_slamMsg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/light_blue"
+                            android:ems="10"
+                            android:fontFamily="@font/poppins_light"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/trySave"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_pink"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="SAVE"
+                    android:textColor="@color/white" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navbar"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:background="@drawable/navbar_ver5"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView3"
+        app:layout_constraintVertical_bias=".411">
+
+        <LinearLayout
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/navBtn_home_addSlam"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#00FFFFFF"
+                app:srcCompat="@drawable/ic_home" />
 
-            <Button
-                android:id="@+id/trySave"
-                android:layout_width="127dp"
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Home"
+                android:textColor="@color/blue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_slam"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/navBtn_addSlam_addSlam"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/button_pink"
-                android:fontFamily="@font/poppins_bold"
-                android:text="SAVE"
-                android:textColor="@color/white" />
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                app:srcCompat="@drawable/navbar_addslam_btn" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Add Slam"
+                android:textColor="@color/dark_pink" />
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/bdays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/navBtn_bday_addSlam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                app:srcCompat="@drawable/ic_bday" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Birthdays"
+                android:textColor="@color/blue" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
