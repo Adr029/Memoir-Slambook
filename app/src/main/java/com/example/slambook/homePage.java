@@ -79,6 +79,8 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
             }
         });
     }
+    public void onBackPressed() {
+    }
     private void displaySlams()
     {
         textDB.setText("");

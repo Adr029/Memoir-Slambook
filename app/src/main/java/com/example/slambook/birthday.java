@@ -33,7 +33,8 @@ public class birthday extends AppCompatActivity {
     textUser = findViewById(R.id.txt_user);
     textBday = findViewById(R.id.txt_date);
     }
-
+    public void onBackPressed() {
+    }
    private void displayBirthdays()
     {
         textUser.setText("");

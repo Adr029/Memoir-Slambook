@@ -159,6 +159,7 @@ else {
         @Override
         public void onClick(View view) {
             Intent birthday = new Intent(addSlam.this, birthday.class);
+            birthday.putExtra("username", loggedin);
             startActivity(birthday);
         }
     });
@@ -166,9 +167,12 @@ else {
         @Override
         public void onClick(View view) {
             Intent homePage = new Intent(addSlam.this, homePage.class);
+            homePage.putExtra("username", loggedin);
             startActivity(homePage);
         }
     });
 }
+    public void onBackPressed() {
+    }
 
 }
