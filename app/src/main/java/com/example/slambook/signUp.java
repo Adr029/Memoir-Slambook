@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,17 +57,26 @@ EditText edt_name, edt_username, edt_password, edt_confirmPW;
     {
         if (password.equals(confirmpass))
         {
-            if (myDB.insertUser(name, username, password))
+            if (!myDB.checkExistingUser(username))
             {
-                Toast.makeText(context, "New User Added", Toast.LENGTH_SHORT).show();
-                Intent home = new Intent(signUp.this, homePage.class);
-                home.putExtra("username", username);
-                startActivity(home);
+                if (myDB.insertUser(name, username, password))
+                {
+                    Toast.makeText(context, "New User Added", Toast.LENGTH_SHORT).show();
+                    Intent home = new Intent(signUp.this, homePage.class);
+                    home.putExtra("username", username);
+                    home.putExtra("name", name);
+                    startActivity(home);
+                }
+                else
+                {
+                    Toast.makeText(context, "Insert failed", Toast.LENGTH_SHORT).show();
+                }
+
             }
-            else
-            {
-                Toast.makeText(context, "Insert failed", Toast.LENGTH_SHORT).show();
-            }
+            else {
+                    Toast.makeText(context, "Username already taken", Toast.LENGTH_SHORT).show();
+                }
+
         }
         else
         {

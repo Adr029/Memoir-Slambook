@@ -20,7 +20,7 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
     Button btn_AddSlam, btn_Birthday, btn_Settings;
     Context context = this;
     SQLiteDBHelper myDB;
-    TextView textDB, usernameSample;
+    TextView textDB;
     String username, slamID, slamAuthor, slamDate, userfullName;
 
     RecyclerView slamRecycler;
@@ -46,12 +46,10 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
         slamRecycler = findViewById(R.id.recycler_slam);
         slamRecycler.setAdapter(slamAdapter);
         slamRecycler.setLayoutManager(new LinearLayoutManager(homePage.this));
-        usernameSample = findViewById(R.id.usernameSample);
         btn_AddSlam = findViewById(R.id.addSlam);
         btn_Birthday = findViewById(R.id.birthdayPage);
         btn_Settings = findViewById(R.id.settingsButton);
         textDB = findViewById(R.id.txt_noSlam);
-        usernameSample.setText(username);
 
 
         btn_AddSlam.setOnClickListener(new View.OnClickListener() {

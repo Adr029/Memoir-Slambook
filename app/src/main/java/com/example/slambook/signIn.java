@@ -57,7 +57,7 @@ Context context = this;
     {
     username = txt_name.getText().toString();
     password = txt_password.getText().toString();
-        if (myDB.checkAccount(username, password))
+        if (myDB.checkCredentials(username, password))
         {
             Cursor result = myDB.selectUserByUsername(username);
             while (result.moveToNext())

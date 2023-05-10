@@ -123,8 +123,25 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
         return result;
     }
+    public boolean checkExistingUser(String username)
+    {
+        String[] columns = {DB_Slam.User.USERNAME};
+        String selection = "user_username=?";
+        String[] selectionArgs = {username};
+        Cursor check = DB.query(DB_Slam.User.USER_TABLE, columns,selection,selectionArgs,null,null ,null);
+        int count = check.getCount();
+        check.close();
 
-    public boolean checkAccount(String username, String password)
+        if (count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public boolean checkCredentials(String username, String password)
     {
         String[] columns = {DB_Slam.User.USERNAME};
         String selection = "user_username=? and user_password=?";
@@ -173,7 +190,6 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         DB = this.getReadableDatabase();
         ContentValues values = new ContentValues();
         values.put(DB_Slam.User.PASSWORD, newPass);
-        String[] columns = {DB_Slam.User.USERNAME};
         String selection = "user_username=?";
         String[] selectionArgs = {username};
         long result = DB.update(DB_Slam.User.USER_TABLE, values, selection, selectionArgs);
