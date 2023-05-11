@@ -14,7 +14,6 @@ import java.util.List;
 
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolder> {
 private Context context;
-
 private List<model> list;
 private itemOnClick listener;
 

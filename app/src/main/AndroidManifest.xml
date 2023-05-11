@@ -19,19 +19,27 @@
             android:exported="false" />
         <activity
             android:name=".addSlam"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden"
+            />
         <activity
             android:name=".signUp"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden"
+            />
         <activity
             android:name=".homePage"
             android:exported="false" />
         <activity
             android:name=".settings"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden"
+            />
         <activity
             android:name=".signIn"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
