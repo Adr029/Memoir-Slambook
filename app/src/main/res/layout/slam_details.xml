@@ -31,18 +31,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/back_slam"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="Add a Slam"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="20sp" />
+                    android:layout_weight="1"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/ic_arrow_back" />
 
                 <Space
-                    android:layout_width="94dp"
+                    android:layout_width="212dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
@@ -124,10 +122,10 @@
                         android:id="@+id/output_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView9"
@@ -141,10 +139,10 @@
                         android:id="@+id/output_nickname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView10"
@@ -158,10 +156,10 @@
                         android:id="@+id/output_bday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView12"
@@ -175,10 +173,10 @@
                         android:id="@+id/output_wish"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -235,10 +233,10 @@
                         android:id="@+id/output_color"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView17"
@@ -253,10 +251,10 @@
                         android:id="@+id/output_food"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView18"
@@ -271,10 +269,10 @@
                         android:id="@+id/output_music"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -342,10 +340,10 @@
                         android:id="@+id/output_message"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="TextView"
-                        android:textColor="@color/light_blue"
-                        android:textSize="16sp" />
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

@@ -48,6 +48,14 @@ public class settings extends AppCompatActivity {
 
             }
         });
+
+        ImageButton back = (ImageButton)findViewById(R.id.back_settings);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void changePass() {
