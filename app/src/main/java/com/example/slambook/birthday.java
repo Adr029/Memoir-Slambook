@@ -1,6 +1,8 @@
 package com.example.slambook;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class birthday extends AppCompatActivity {
 
     ImageButton btn_Home, btn_AddSlam, btn_Birthday, btn_Settings;
@@ -20,6 +24,10 @@ public class birthday extends AppCompatActivity {
     TextView textUser;
     TextView textBday;
     String loggedin;
+    RecyclerView birthdayReycler;
+    birthdayAdapter BirthdayAdapter;
+    ArrayList<String> author, bday;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +41,13 @@ public class birthday extends AppCompatActivity {
 
     public void init()
     {
+        author = new ArrayList<>();
+        bday = new ArrayList<>();
+
+        BirthdayAdapter = new birthdayAdapter(this, author, bday);
+        birthdayReycler = findViewById(R.id.bday_recycler);
+        birthdayReycler.setAdapter(BirthdayAdapter);
+        birthdayReycler.setLayoutManager(new LinearLayoutManager(this));
     textUser = findViewById(R.id.txt_user);
     textBday = findViewById(R.id.txt_date);
     btn_AddSlam = findViewById(R.id.navBtn_addSlam_bday);
@@ -96,7 +111,10 @@ public class birthday extends AppCompatActivity {
             while (result.moveToNext())
             {
                 stringBuffer.append(" " + result.getString(1) +"\n\n");
+
                 stringBuffer2.append(" " + result.getString(3) +"\n\n");
+                author.add(result.getString(1));
+                bday.add(result.getString(3));
             }
 
             textUser.setText(stringBuffer);
