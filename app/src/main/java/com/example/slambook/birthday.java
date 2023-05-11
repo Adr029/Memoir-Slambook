@@ -89,7 +89,8 @@ public class birthday extends AppCompatActivity {
         });
 
     }
-
+    public void onBackPressed() {
+    }
    private void displayBirthdays()
     {
 
