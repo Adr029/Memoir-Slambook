@@ -116,6 +116,7 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
         slamID = slamModel.getSlam_id();
         Intent slam = new Intent(homePage.this, slamDetails.class);
         slam.putExtra("slamID", slamID);
+        slam.putExtra("username", username);
         slam.putExtra("userfullName", userfullName);
         startActivity(slam);
     }

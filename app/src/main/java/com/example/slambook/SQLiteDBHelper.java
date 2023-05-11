@@ -134,6 +134,22 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
         return result;
     }
+
+    public boolean deleteSlamByID(String slamID)
+    {
+        String selection = "slam_id=?";
+        String[] selectionArgs = {slamID};
+        DB = this.getReadableDatabase();
+        long result = DB.delete(DB_Slam.Slams.SLAM_TABLE, selection,selectionArgs);
+        if (result == -1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     public boolean checkExistingUser(String username)
     {
         String[] columns = {DB_Slam.User.USERNAME};
