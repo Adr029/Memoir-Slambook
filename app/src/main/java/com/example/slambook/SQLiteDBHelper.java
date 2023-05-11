@@ -36,6 +36,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
                 "`" + DB_Slam.Slams.USERMSG + "` TEXT NOT NULL," +//8
                 "`" + DB_Slam.Slams.DATE + "` TEXT NOT NULL," + //9
                 "`" + DB_Slam.Slams.LOGGEDIN + "` TEXT NOT NULL," + //10
+                "`" + DB_Slam.Slams.BIRTHDATA + "` TEXT NOT NULL," + //11
                 " UNIQUE (`" + DB_Slam.Slams.SLAMID + "`) ON CONFLICT ABORT);";
 
         final String CREATE_USER_TABLE = "CREATE TABLE `" + DB_Slam.User.USER_TABLE + "` (" +
@@ -71,7 +72,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
     }
     //change to user ID
     public boolean insertSlams(String name, String nickname, String birthday,
-                               String bdaywish, String color, String food, String music, String msg, String currentDate, String loggedUser) {
+                               String bdaywish, String color, String food, String music, String msg, String currentDate, String loggedUser, String birthData) {
         ContentValues values = new ContentValues();
         values.put(DB_Slam.Slams.COMPLETE_NAME, name);
         values.put(DB_Slam.Slams.NICKNAME, nickname);
@@ -83,6 +84,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         values.put(DB_Slam.Slams.USERMSG, msg);
         values.put(DB_Slam.Slams.DATE, currentDate);
         values.put(DB_Slam.Slams.LOGGEDIN, loggedUser);
+        values.put(DB_Slam.Slams.BIRTHDATA, birthData);
         long result = DB.insert(DB_Slam.Slams.SLAM_TABLE, null, values);
         if (result == -1) {
             return false;
@@ -113,6 +115,15 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {loggedinuser};
         DB = this.getReadableDatabase();
         Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, null);
+        return result;
+    }
+
+    public Cursor selectBirthdaysByUser(String loggedinuser)
+    {
+        String selection = "answer_loggedin=?";
+        String[] selectionArgs = {loggedinuser};
+        DB = this.getReadableDatabase();
+        Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, DB_Slam.Slams.BIRTHDATA   );
         return result;
     }
     public Cursor selectSlamByID(String slamID)

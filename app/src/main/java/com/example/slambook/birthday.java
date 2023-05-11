@@ -77,14 +77,13 @@ public class birthday extends AppCompatActivity {
         });
 
     }
-    public void onBackPressed() {
-    }
+
    private void displayBirthdays()
     {
         textUser.setText("");
         textBday.setText("");
 
-        Cursor result = myDB.selectSlamsByUser(loggedin);
+        Cursor result = myDB.selectBirthdaysByUser(loggedin);
         if (result.getCount() == 0)
         {
             textUser.setText("No Data");

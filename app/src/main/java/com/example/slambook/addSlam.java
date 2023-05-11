@@ -29,7 +29,7 @@ SQLiteDBHelper myDB;
 Context context = this;
 String loggedin, userfullName;
 TextView loggedinUser;
-String birthMonth, birthDay;
+String birthMonth, birthDay, birthData;
 DatePickerDialog.OnDateSetListener setListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,44 +78,45 @@ private void init()
     setListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-            month = month+1;
-            birthDay = String.valueOf(month);
+            int placeholderYear = 0000;
+            birthDay = String.valueOf(day);
+            birthData = placeholderYear+"-"+month+"-"+day;
             switch (month)
             {
-                case 1:
+                case 0:
                     birthMonth = "January";
                     break;
-                case 2:
+                case 1:
                     birthMonth = "February";
                     break;
-                case 3:
+                case 2:
                     birthMonth = "March";
                     break;
-                case 4:
+                case 3:
                     birthMonth = "April";
                     break;
-                case 5:
+                case 4:
                     birthMonth = "May";
                     break;
-                case 6:
+                case 5:
                     birthMonth = "June";
                     break;
-                case 7:
+                case 6:
                     birthMonth = "July";
                     break;
-                case 8:
+                case 7:
                     birthMonth = "August";
                     break;
-                case 9:
+                case 8:
                     birthMonth = "September";
                     break;
-                case 10:
+                case 9:
                     birthMonth = "October";
                     break;
-                case 11:
+                case 10:
                     birthMonth = "November";
                     break;
-                case 12:
+                case 11:
                     birthMonth = "December";
                     break;
             }
@@ -137,10 +138,11 @@ private void init()
             String currentDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(new Date());
 if (name.length()!=0 && nickname.length()!=0 && birthday.length()!=0 && bdaywish.length()!=0 && color.length()!=0 && food.length()!=0 && music.length()!=0 && msg.length()!=0)
 {
-    if (myDB.insertSlams(name, nickname, birthday, bdaywish, color, food, music, msg, currentDate, loggedUser)) {
+    if (myDB.insertSlams(name, nickname, birthday, bdaywish, color, food, music, msg, currentDate, loggedUser, birthData)) {
         Toast.makeText(context, "New Slam Added", Toast.LENGTH_SHORT).show();
         Intent home = new Intent(addSlam.this, homePage.class);
         home.putExtra("username", loggedin);
+        home.putExtra("name", userfullName);
         startActivity(home);
 
     } else {
