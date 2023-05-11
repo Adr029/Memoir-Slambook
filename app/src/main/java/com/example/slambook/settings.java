@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class settings extends AppCompatActivity {
+
     Button btn_logOut, btn_confirm;
     Context context = this;
     String oldPass, newPass, username;

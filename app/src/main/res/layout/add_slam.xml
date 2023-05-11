@@ -8,11 +8,12 @@
     tools:context=".addSlam">
 
     <LinearLayout
+        android:id="@+id/header_addSlam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBaseline_toBottomOf="parent"
 
+        app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -177,13 +178,13 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/light_blue"
                             android:ems="10"
+                            android:focusable="false"
                             android:fontFamily="@font/poppins_light"
                             android:hint="mm/dd/yy"
                             android:inputType="date"
                             android:textColor="@color/dark_blue"
                             android:textColorHint="@color/light_blue"
-                            android:textSize="16sp"
-                            android:focusable="false"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/textView12"
@@ -407,7 +408,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView3"
         app:layout_constraintVertical_bias=".411">
 
         <LinearLayout

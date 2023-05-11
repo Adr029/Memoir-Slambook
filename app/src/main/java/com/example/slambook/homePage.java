@@ -9,15 +9,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class homePage extends AppCompatActivity implements  itemOnClick{
-    Button btn_AddSlam, btn_Birthday, btn_Settings;
+    ImageButton btn_Home, btn_AddSlam, btn_Birthday, btn_Settings;
     Context context = this;
     SQLiteDBHelper myDB;
     TextView textDB;
@@ -46,11 +44,21 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
         slamRecycler = findViewById(R.id.recycler_slam);
         slamRecycler.setAdapter(slamAdapter);
         slamRecycler.setLayoutManager(new LinearLayoutManager(homePage.this));
-        btn_AddSlam = findViewById(R.id.addSlam);
-        btn_Birthday = findViewById(R.id.birthdayPage);
-        btn_Settings = findViewById(R.id.settingsButton);
+        btn_AddSlam = findViewById(R.id.navBtn_addSlam_home);
+        btn_Home = findViewById(R.id.navBtn_home_home);
+        btn_Birthday = findViewById(R.id.navBtn_bday_home);
+        btn_Settings = findViewById(R.id.settings_home);
         textDB = findViewById(R.id.txt_noSlam);
 
+        btn_Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(homePage.this, homePage.class);
+                home.putExtra("username", username);
+                home.putExtra("userfullName", userfullName);;
+                startActivity(home);
+            }
+        });
 
         btn_AddSlam.setOnClickListener(new View.OnClickListener() {
             @Override
