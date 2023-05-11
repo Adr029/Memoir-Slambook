@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class slamDetails extends AppCompatActivity {
@@ -37,6 +39,14 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
     txt_music = findViewById(R.id.output_music);
     txt_msg = findViewById(R.id.output_message);
     txt_userLoggedIn = findViewById(R.id.txt_userLoggedIn);
+
+        ImageButton back = (ImageButton)findViewById(R.id.back_slam);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void displaySlam()
