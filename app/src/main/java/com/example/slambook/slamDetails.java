@@ -5,55 +5,58 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class slamDetails extends AppCompatActivity {
     SQLiteDBHelper myDB;
     Context context = this;
-    String slamID, name, nickname, bday, bdaywish, color, food, music, msg, loggedinUser, userfullName;
-TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food, txt_music, txt_msg, txt_userLoggedIn;
+    String slamID, name, nickname, bday, bdaywish, color, food, music, msg, loggedinUser, userfullName, username;
+    TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food, txt_music, txt_msg, txt_userLoggedIn;
+
+    ImageButton btn_deleteSam;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.slam_details);
         Intent intent = getIntent();
         slamID = intent.getStringExtra("slamID");
+        username = intent.getStringExtra("username");
         userfullName = intent.getStringExtra("userfullName");
         myDB = new SQLiteDBHelper(context);
         init();
         displaySlam();
 
-    }
-
-    public void init()
-    {
-    txt_name = findViewById(R.id.output_name);
-    txt_nickname = findViewById(R.id.output_nickname);
-    txt_birthday = findViewById(R.id.output_bday);
-    txt_bdaywish = findViewById(R.id.output_wish);
-    txt_color = findViewById(R.id.output_color);
-    txt_food = findViewById(R.id.output_food);
-    txt_music = findViewById(R.id.output_music);
-    txt_msg = findViewById(R.id.output_message);
-    txt_userLoggedIn = findViewById(R.id.txt_userLoggedIn);
-
-        ImageButton back = (ImageButton)findViewById(R.id.back_slam);
-        back.setOnClickListener(new View.OnClickListener() {
+        btn_deleteSam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                deleteSlam();
             }
         });
+
     }
 
-    public void displaySlam()
-    {
+    public void init() {
+        txt_name = findViewById(R.id.output_name);
+        txt_nickname = findViewById(R.id.output_nickname);
+        txt_birthday = findViewById(R.id.output_bday);
+        txt_bdaywish = findViewById(R.id.output_wish);
+        txt_color = findViewById(R.id.output_color);
+        txt_food = findViewById(R.id.output_food);
+        txt_music = findViewById(R.id.output_music);
+        txt_msg = findViewById(R.id.output_message);
+        txt_userLoggedIn = findViewById(R.id.txt_userLoggedIn);
+        btn_deleteSam = findViewById(R.id.deleteSlam);
+    }
+
+    public void displaySlam() {
         Cursor result = myDB.selectSlamByID(slamID);
-        while (result.moveToNext())
-        {
+        while (result.moveToNext()) {
             name = result.getString(1);
             nickname = result.getString(2);
             bday = result.getString(3);
@@ -74,5 +77,16 @@ TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food
         txt_msg.setText(msg);
         txt_userLoggedIn.setText(userfullName);
 
+    }
+
+    public void deleteSlam() {
+        if (myDB.deleteSlamByID(slamID)) {
+            Toast.makeText(context, "Slam Deleted", Toast.LENGTH_SHORT).show();
+            Intent home = new Intent(slamDetails.this, homePage.class);
+            home.putExtra("username", username);
+            home.putExtra("name", userfullName);
+            startActivity(home);
+
+        }
     }
 }
