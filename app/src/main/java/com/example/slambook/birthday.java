@@ -33,14 +33,13 @@ public class birthday extends AppCompatActivity {
     textUser = findViewById(R.id.txt_user);
     textBday = findViewById(R.id.txt_date);
     }
-    public void onBackPressed() {
-    }
+
    private void displayBirthdays()
     {
         textUser.setText("");
         textBday.setText("");
 
-        Cursor result = myDB.selectSlamsByUser(loggedin);
+        Cursor result = myDB.selectBirthdaysByUser(loggedin);
         if (result.getCount() == 0)
         {
             textUser.setText("No Data");

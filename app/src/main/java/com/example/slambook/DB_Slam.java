@@ -19,6 +19,7 @@ public class DB_Slam {
         public static String USERMSG = "slam_msg";
         public static String DATE = "answer_date";
         public static String LOGGEDIN = "answer_loggedin"; //kung kaninong acc naka log in
+        public static String BIRTHDATA = "answer_fullbirthday";
     }
 
     public static class User implements BaseColumns {
