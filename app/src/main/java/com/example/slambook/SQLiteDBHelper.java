@@ -150,6 +150,21 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public boolean deleteAllSlamsByID(String loggedinuser)
+    {
+        String selection = "answer_loggedin=?";
+        String[] selectionArgs = {loggedinuser};
+        DB = this.getReadableDatabase();
+        long result = DB.delete(DB_Slam.Slams.SLAM_TABLE, selection,selectionArgs);
+        if (result == -1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     public boolean checkExistingUser(String username)
     {
         String[] columns = {DB_Slam.User.USERNAME};

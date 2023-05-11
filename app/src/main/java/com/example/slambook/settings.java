@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 public class settings extends AppCompatActivity {
 
-    Button btn_logOut, btn_confirm;
+    Button btn_logOut, btn_confirm, btn_delete;
     Context context = this;
-    String oldPass, newPass, username;
+    String oldPass, newPass, username, userfullName;
     SQLiteDBHelper myDB;
     EditText input_oldPass, input_newPass;
     @Override
@@ -24,6 +24,7 @@ public class settings extends AppCompatActivity {
         setContentView(R.layout.settings);
         myDB = new SQLiteDBHelper(context);
         username =  getIntent().getStringExtra("username");
+        userfullName =  getIntent().getStringExtra("name");
         init();
 
     }
@@ -31,12 +32,14 @@ public class settings extends AppCompatActivity {
     public void init() {
         btn_logOut = findViewById(R.id.logOut);
         btn_confirm = findViewById(R.id.settings_confirm);
+        btn_delete = findViewById(R.id.settings_delete);
         input_oldPass = findViewById(R.id.settings_password);
         input_newPass = findViewById(R.id.input_NewPassword);
 
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 changePass();
             }
         });
@@ -47,8 +50,14 @@ public class settings extends AppCompatActivity {
                 startActivity(logout);
 
             }
-        });
 
+        });
+    btn_delete.setOnClickListener(new View.OnClickListener() {
+    @Override
+        public void onClick(View view) {
+            deleteAllSlams();
+        }
+        });
         ImageButton back = (ImageButton)findViewById(R.id.back_settings);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +66,17 @@ public class settings extends AppCompatActivity {
             }
         });
     }
+    public void deleteAllSlams()
+    {
+        if (myDB.deleteAllSlamsByID(username)) {
+            Toast.makeText(context, "All Slams Deleted", Toast.LENGTH_SHORT).show();
+            Intent home = new Intent(settings.this, homePage.class);
+            home.putExtra("username", username);
+            home.putExtra("name", userfullName);
+            startActivity(home);
 
+        }
+    }
     public void changePass() {
         oldPass = input_oldPass.getText().toString();
         newPass = input_newPass.getText().toString();

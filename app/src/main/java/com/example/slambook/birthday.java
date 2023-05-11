@@ -21,8 +21,6 @@ public class birthday extends AppCompatActivity {
     String username, userfullName;
     Context context = this;
     SQLiteDBHelper myDB;
-    TextView textUser;
-    TextView textBday;
     String loggedin;
     RecyclerView birthdayReycler;
     birthdayAdapter BirthdayAdapter;
@@ -48,8 +46,7 @@ public class birthday extends AppCompatActivity {
         birthdayReycler = findViewById(R.id.bday_recycler);
         birthdayReycler.setAdapter(BirthdayAdapter);
         birthdayReycler.setLayoutManager(new LinearLayoutManager(this));
-    textUser = findViewById(R.id.txt_user);
-    textBday = findViewById(R.id.txt_date);
+
     btn_AddSlam = findViewById(R.id.navBtn_addSlam_bday);
     btn_Home = findViewById(R.id.navBtn_home_bday);
     btn_Birthday = findViewById(R.id.navBtn_bday_bday);
@@ -95,30 +92,20 @@ public class birthday extends AppCompatActivity {
 
    private void displayBirthdays()
     {
-        textUser.setText("");
-        textBday.setText("");
 
         Cursor result = myDB.selectBirthdaysByUser(loggedin);
         if (result.getCount() == 0)
         {
-            textUser.setText("No Data");
-
+            //textUser.setText("No Data"); yung parang sa no slams yet
         }
         else
         {
-            StringBuffer stringBuffer = new StringBuffer();
-            StringBuffer stringBuffer2 = new StringBuffer();
             while (result.moveToNext())
             {
-                stringBuffer.append(" " + result.getString(1) +"\n\n");
-
-                stringBuffer2.append(" " + result.getString(3) +"\n\n");
                 author.add(result.getString(1));
                 bday.add(result.getString(3));
             }
 
-            textUser.setText(stringBuffer);
-            textBday.setText(stringBuffer2);
         }
     }
 
