@@ -163,20 +163,19 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <ImageButton
-                            android:id="@+id/imageButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="36dp"
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="#00FFFFFF"
                             app:srcCompat="@drawable/warning" />
 
                         <TextView
                             android:id="@+id/textView21"
-                            android:layout_width="283dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="By clicking ”Delete” all of the recorded slams will be permanently deleted."
+                            android:text="By clicking ”Delete” all of the recorded slams will \nbe permanently deleted."
                             android:textColor="@color/dark_blue"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -206,16 +205,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/button_pink"
                 android:ems="10"
                 android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
                 android:text="LOG OUT"
                 android:textColor="@color/white"
 
 
-                 />
+                />
 
         </LinearLayout>
     </ScrollView>
