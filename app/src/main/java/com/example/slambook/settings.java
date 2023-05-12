@@ -89,19 +89,15 @@ public class settings extends AppCompatActivity {
                     input_oldPass.setText("");
                     input_newPass.setText("");
                     Toast.makeText(context, "Password changed.", Toast.LENGTH_SHORT).show();
-
                 }
                 else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
-
             }
             else {
                 Toast.makeText(context, "Incorrect password.", Toast.LENGTH_SHORT).show();
-
             }
         }
-
         else
         {
             Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();

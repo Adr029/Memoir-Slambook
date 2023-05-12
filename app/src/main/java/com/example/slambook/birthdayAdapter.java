@@ -23,9 +23,7 @@ public class birthdayAdapter extends RecyclerView.Adapter<birthdayAdapter.MyView
         this.bday = bday;
     };
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
         TextView txt_author, txt_bday;
         CardView card_slam;
         public MyViewHolder(@NonNull View itemView) {
@@ -35,7 +33,6 @@ public class birthdayAdapter extends RecyclerView.Adapter<birthdayAdapter.MyView
             card_slam = itemView.findViewById(R.id.card_slam2);
         }
     }
-
     @NonNull
     @Override
     public birthdayAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,9 +44,7 @@ public class birthdayAdapter extends RecyclerView.Adapter<birthdayAdapter.MyView
     public void onBindViewHolder(@NonNull birthdayAdapter.MyViewHolder holder, int position) {
         holder.txt_author.setText(String.valueOf(author.get(position)));
         holder.txt_bday.setText(String.valueOf(bday.get(position)));
-
     }
-
     public int getItemCount() {
         return author.size();
     }

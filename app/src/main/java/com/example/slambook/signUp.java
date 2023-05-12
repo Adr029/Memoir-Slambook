@@ -76,21 +76,16 @@ EditText edt_name, edt_username, edt_password, edt_confirmPW;
             else {
                     Toast.makeText(context, "Username already taken", Toast.LENGTH_SHORT).show();
                 }
-
         }
         else
         {
             Toast.makeText(context, "Passwords do not match", Toast.LENGTH_SHORT).show();
         }
-
     }
-
     else
     {
         Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
-
     }
-
             }
         });
     }

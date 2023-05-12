@@ -20,7 +20,6 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
     SQLiteDBHelper myDB;
     TextView textDB;
     String username, slamID, slamAuthor, slamDate, userfullName;
-
     RecyclerView slamRecycler;
     recyclerAdapter slamAdapter;
     ArrayList<model> modelList;
