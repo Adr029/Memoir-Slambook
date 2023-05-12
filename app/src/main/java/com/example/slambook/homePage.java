@@ -50,15 +50,6 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
         btn_Settings = findViewById(R.id.settings_home);
         textDB = findViewById(R.id.txt_noSlam);
 
-        btn_Home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent home = new Intent(homePage.this, homePage.class);
-                home.putExtra("username", username);
-                home.putExtra("userfullName", userfullName);;
-                startActivity(home);
-            }
-        });
 
         btn_AddSlam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +66,7 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
             public void onClick(View view) {
                 Intent birthday = new Intent(homePage.this, birthday.class);
                 birthday.putExtra("username", username);
+                birthday.putExtra("name", userfullName);;
                 startActivity(birthday);
             }
         });
@@ -83,6 +75,7 @@ public class homePage extends AppCompatActivity implements  itemOnClick{
             public void onClick(View view) {
                 Intent settings = new Intent(homePage.this, settings.class);
                 settings.putExtra("username", username);
+                settings.putExtra("userfullName", userfullName);;
                 startActivity(settings);
             }
         });

@@ -78,7 +78,7 @@ private void init()
     setListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-            int placeholderYear = 0000;
+            int placeholderYear = 1111;
             birthDay = String.valueOf(day);
             birthData = placeholderYear+"-"+month+"-"+day;
             switch (month)
@@ -162,6 +162,7 @@ else {
         public void onClick(View view) {
             Intent birthday = new Intent(addSlam.this, birthday.class);
             birthday.putExtra("username", loggedin);
+            birthday.putExtra("name", userfullName);
             startActivity(birthday);
         }
     });
@@ -170,6 +171,7 @@ else {
         public void onClick(View view) {
             Intent homePage = new Intent(addSlam.this, homePage.class);
             homePage.putExtra("username", loggedin);
+            homePage.putExtra("name", userfullName);
             startActivity(homePage);
         }
     });

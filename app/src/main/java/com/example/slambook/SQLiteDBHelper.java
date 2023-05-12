@@ -123,7 +123,7 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         String selection = "answer_loggedin=?";
         String[] selectionArgs = {loggedinuser};
         DB = this.getReadableDatabase();
-        Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, DB_Slam.Slams.BIRTHDATA   );
+        Cursor result = DB.query(DB_Slam.Slams.SLAM_TABLE, null, selection, selectionArgs, null, null, DB_Slam.Slams.BIRTHDATA);
         return result;
     }
     public Cursor selectSlamByID(String slamID)

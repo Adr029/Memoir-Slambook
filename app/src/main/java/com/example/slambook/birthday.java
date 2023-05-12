@@ -33,6 +33,7 @@ public class birthday extends AppCompatActivity {
         myDB = new SQLiteDBHelper(context);
         init();
         loggedin = getIntent().getStringExtra("username");
+        userfullName = getIntent().getStringExtra("name");
         displayBirthdays();
 
     }
@@ -57,7 +58,7 @@ public class birthday extends AppCompatActivity {
             public void onClick(View view) {
                 Intent home = new Intent(birthday.this, homePage.class);
                 home.putExtra("username", loggedin);
-                home.putExtra("userfullName", userfullName);;
+                home.putExtra("name", userfullName);;
                 startActivity(home);
             }
         });
@@ -71,19 +72,13 @@ public class birthday extends AppCompatActivity {
             }
         });
 
-        btn_Birthday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent birthday = new Intent(birthday.this, birthday.class);
-                birthday.putExtra("username", loggedin);
-                startActivity(birthday);
-            }
-        });
         btn_Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent settings = new Intent(birthday.this, settings.class);
                 settings.putExtra("username", loggedin);
+                settings.putExtra("userfullName", userfullName);;
+
                 startActivity(settings);
             }
         });

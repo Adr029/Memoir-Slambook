@@ -17,7 +17,7 @@ public class slamDetails extends AppCompatActivity {
     Context context = this;
     String slamID, name, nickname, bday, bdaywish, color, food, music, msg, loggedinUser, userfullName, username;
     TextView txt_name, txt_nickname, txt_birthday, txt_bdaywish, txt_color, txt_food, txt_music, txt_msg, txt_userLoggedIn;
-
+    ImageButton btn_back;
     ImageButton btn_deleteSam;
 
     @Override
@@ -52,8 +52,23 @@ public class slamDetails extends AppCompatActivity {
         txt_msg = findViewById(R.id.output_message);
         txt_userLoggedIn = findViewById(R.id.txt_userLoggedIn);
         btn_deleteSam = findViewById(R.id.deleteSlam);
-    }
+        btn_back = findViewById(R.id.back_slam);
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                returnHome();
+
+            }
+        });
+    }
+public void returnHome()
+{
+    Intent home = new Intent(slamDetails.this, homePage.class);
+    home.putExtra("username", username);
+    home.putExtra("name", userfullName);
+    startActivity(home);
+}
     public void displaySlam() {
         Cursor result = myDB.selectSlamByID(slamID);
         while (result.moveToNext()) {
@@ -82,10 +97,7 @@ public class slamDetails extends AppCompatActivity {
     public void deleteSlam() {
         if (myDB.deleteSlamByID(slamID)) {
             Toast.makeText(context, "Slam Deleted", Toast.LENGTH_SHORT).show();
-            Intent home = new Intent(slamDetails.this, homePage.class);
-            home.putExtra("username", username);
-            home.putExtra("name", userfullName);
-            startActivity(home);
+            returnHome();
 
         }
     }
