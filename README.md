@@ -9,6 +9,10 @@ It was developed in Android Studio using Java and the database was handled using
 * Birthdays List
 * Slam Browsing and Writing 
 * User Registration
+## System Requirements
+<img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"/><br>
+
+Android 4.0 and above
 
 
 
